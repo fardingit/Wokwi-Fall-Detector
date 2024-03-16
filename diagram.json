@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "author": "Mukul Chadha, Fardin Islam, Brihslav Kayastha",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": -11.72, "left": -36.76, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": 210.49, "left": -2.03, "attrs": {} },
+    { "type": "board-ssd1306", "id": "oled1", "top": 216.54, "left": 140.05, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 195.71,
+      "left": 319.3,
+      "attrs": { "temperature": "-30.2", "humidity": "22.5" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": -151.24,
+      "left": 117.7,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 96.33,
+      "left": 341.29,
+      "attrs": { "color": "green", "bounce": "0" }
+    }
+  ],
+  "connections": [
+    [ "imu1:VCC", "mega:5V", "red", [ "v0" ] ],
+    [ "imu1:GND", "mega:GND.2", "black", [ "v0" ] ],
+    [ "imu1:SCL", "mega:21", "green", [ "v-286.16", "h283.5" ] ],
+    [ "imu1:SDA", "mega:20", "green", [ "v-269.73", "h278.81" ] ],
+    [ "oled1:VCC", "mega:5V", "red", [ "v0" ] ],
+    [ "oled1:GND", "mega:GND.2", "black", [ "v0" ] ],
+    [ "oled1:SCL", "mega:21", "green", [ "v-259.69", "h4.38" ] ],
+    [ "oled1:SDA", "mega:20", "green", [ "v-246.83", "h120.32" ] ],
+    [ "dht1:GND", "mega:GND.5", "black", [ "v-148.54", "h11.05" ] ],
+    [ "dht1:VCC", "mega:5V", "red", [ "v0" ] ],
+    [ "dht1:SDA", "mega:5", "green", [ "v0" ] ],
+    [ "rgb1:R", "mega:10", "green", [ "v-7.45", "h-97.96", "v217.59" ] ],
+    [ "rgb1:G", "mega:9", "green", [ "v-41.91", "h-95.19" ] ],
+    [ "rgb1:B", "mega:8", "green", [ "v-60.85", "h-103.4", "v7.62" ] ],
+    [ "rgb1:COM", "mega:GND.1", "green", [ "v17.37", "h-161.36" ] ],
+    [ "btn1:2.l", "mega:GND.1", "black", [ "h0" ] ],
+    [ "btn1:1.r", "mega:2", "green", [ "v0" ] ]
+  ]
+}
